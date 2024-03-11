@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<style>
+    #clockContainer{
+    position: relative;
+    margin: auto;
+    background-color: rgb(217, 47, 47);
+    height: 40vw;
+    width: 40vw;
+    background: url("http://www.clipartbest.com/cliparts/yio/gya/yiogya7RT.jpeg") no-repeat ;
+    background-size: 100%;
+    z-index: -1;
+    /* border: 2px solid red; */
+
+}
+#hour, #minute, #second{
+
+    position: absolute;
+    background: black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+
+
+}
+#hour{
+    height: 28%;
+    width: 3%;
+    left: 48.5%;
+    top: 21%;
+    opacity: 100%;
+    box-shadow: 2px 7px 13px;
+    /* display: none; */
+}
+#minute{
+    height: 38%;
+    width: 1.3%;
+    left: 49.3%;
+    top: 10%;
+    box-shadow: 2px 3px 6px;
+    /* display: none */
+}
+#second{
+    left: 49.5%;
+    top: 5%;
+    height: 43%;
+    width: 0.8%;
+    background-color: #ae0909;
+    z-index: -1;
+    box-shadow: 2px 2px 6px;
+    /* display: none; */
+}
+#spot{
+    background-color: #595959;
+    height: 7%;
+    width: 7%;
+    position: absolute;
+    top: 44%;
+    left: 46%;
+    border-radius: 100%;
+    box-shadow: 2px 2px 8px;
+    /* display: none; */
+}
+</style>
+<body>
+    <div id="clockContainer">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <div id="spot"></div>
+    </div>
+</body>
+<script>
+    setInterval(()=>{
+    d=new Date();
+    htime=d.getHours();
+    mtime=d.getMinutes();
+    stime=d.getSeconds();
+    hrotation=30*htime+mtime/2;
+    mrotation=6*mtime;
+    srotation=6*stime;
+    hour.style.transform=`rotate(${hrotation}deg)`;
+    minute.style.transform=`rotate(${mrotation}deg)`;
+    second.style.transform=`rotate(${srotation}deg)`;
+
+},1000);
+</script>
+</html>
